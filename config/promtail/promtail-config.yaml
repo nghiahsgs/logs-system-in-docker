@@ -25,3 +25,4 @@ scrape_configs:
           job: app_logs
           app: myapp
           __path__: /var/log/app/output.log 
+    read_from: beginning
