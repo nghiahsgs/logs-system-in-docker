@@ -60,3 +60,9 @@ docker-compose down
 - File logs được mount vào container Promtail tại đường dẫn `/var/log/app`
 - Loki lưu trữ dữ liệu trong volume Docker để đảm bảo dữ liệu không bị mất khi container bị xóa
 - Cấu hình đã được thiết lập để Promtail theo dõi file `output.log` và gửi logs tới Loki
+
+
+
+docker-compose restart promtail
+docker exec -it promtail rm /tmp/positions.yaml
+docker restart promtail

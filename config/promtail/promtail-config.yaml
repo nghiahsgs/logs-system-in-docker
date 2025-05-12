@@ -24,5 +24,14 @@ scrape_configs:
         labels:
           job: app_logs
           app: myapp
-          __path__: /var/log/app/output.log 
-    read_from: beginning
+          __path__: /var/log/app/output.log
+    pipeline_stages:
+      - timestamp:
+          source: time
+          format: RFC3339
+      - match:
+          selector: '{job="app_logs"}'
+          stages:
+            - timestamp:
+                format: RFC3339
+                source: time
