@@ -1,0 +1,7 @@
+2023-07-01T12:00:00 INFO Starting application
+2023-07-01T12:00:05 INFO Application started successfully
+2023-07-01T12:01:10 DEBUG Processing user request user_id=123
+2023-07-01T12:01:15 ERROR Failed to connect to database: Connection refused
+2023-07-01T12:02:20 INFO User login successful user_id=123
+2023-07-01T12:03:30 WARN Slow query detected query_time=1.5s
+2023-07-01T12:04:40 INFO Request completed request_id=abc123 duration=250ms 
