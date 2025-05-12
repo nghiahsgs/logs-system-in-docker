@@ -51,3 +51,32 @@
 2025-05-12T18:13:25 ERROR API request to /api/users/9 completed
 2025-05-12T18:13:28 INFO Failed to connect to service: service-4
 2025-05-12T18:13:30 INFO CPU usage: 14%
+2025-05-12T18:13:32 DEBUG User login successful user_id=813
+2025-05-12T18:13:34 DEBUG User login successful user_id=511
+2025-05-12T18:13:35 WARN Request processed request_id=req-13 duration=411ms
+2025-05-12T18:13:37 DEBUG Memory usage: 235MB
+2025-05-12T18:13:38 INFO Memory usage: 324MB
+2025-05-12T18:13:39 WARN Database query executed in 0ms
+2025-05-12T18:13:42 INFO Memory usage: 385MB
+2025-05-12T18:13:42 INFO Request processed request_id=req-690 duration=174ms
+2025-05-12T18:13:43 INFO Memory usage: 88MB
+2025-05-12T18:13:46 DEBUG User login successful user_id=387
+2025-05-12T18:13:49 ERROR API request to /api/users/5 completed
+2025-05-12T18:13:50 DEBUG Database query executed in 427ms
+2025-05-12T18:13:53 INFO User login successful user_id=991
+2025-05-12T18:13:55 ERROR Failed to connect to service: service-5
+2025-05-12T18:13:56 WARN Cache hit ratio: 0.60
+2025-05-12T18:13:58 DEBUG Database query executed in 194ms
+2025-05-12T18:14:00 INFO API request to /api/users/9 completed
+2025-05-12T18:14:03 ERROR Failed to connect to service: service-5
+2025-05-12T18:14:05 DEBUG Memory usage: 317MB
+2025-05-12T18:14:08 INFO Request processed request_id=req-230 duration=357ms
+2025-05-12T18:14:09 DEBUG Database query executed in 481ms
+2025-05-12T18:14:12 WARN User login successful user_id=117
+2025-05-12T18:14:13 DEBUG Failed to connect to service: service-4
+2025-05-12T18:14:15 DEBUG CPU usage: 34%
+2025-05-12T18:14:16 WARN Request processed request_id=req-243 duration=99ms
+2025-05-12T18:14:19 ERROR Database query executed in 27ms
+2025-05-12T18:14:21 WARN User login successful user_id=666
+2025-05-12T18:14:23 INFO Failed to connect to service: service-3
+2025-05-12T18:14:25 INFO Memory usage: 626MB
