@@ -17,7 +17,8 @@ messages=(
 while true; do
   timestamp=$(date +"%Y-%m-%dT%H:%M:%S")
   log_type=${log_types[$RANDOM % ${#log_types[@]}]}
-  message=${messages[$RANDOM % ${#messages[@]}]}
+  message_index=$((RANDOM % ${#messages[@]}))
+  message=${messages[$message_index]}
   
   # Generate random values for placeholders
   user_id=$((RANDOM % 1000))
@@ -29,8 +30,18 @@ while true; do
   service="service-$(( RANDOM % 5 + 1))"
   api_path="users/$(( RANDOM % 10 + 1))"
   
-  # Format message with random values
-  formatted_message=$(printf "$message" $user_id $request_id $duration $ratio $duration $memory $cpu $service $api_path)
+  # Format message based on its type to avoid incorrect substitutions
+  case $message_index in
+    0) formatted_message=$(printf "$message" $user_id) ;;
+    1) formatted_message=$(printf "$message" $request_id $duration) ;;
+    2) formatted_message=$(printf "$message" $ratio) ;;
+    3) formatted_message=$(printf "$message" $duration) ;;
+    4) formatted_message=$(printf "$message" $memory) ;;
+    5) formatted_message=$(printf "$message" $cpu) ;;
+    6) formatted_message=$(printf "$message" $service) ;;
+    7) formatted_message=$(printf "$message" $api_path) ;;
+    *) formatted_message=$message ;;
+  esac
   
   # Write to log file
   echo "$timestamp $log_type $formatted_message" >> $LOG_FILE

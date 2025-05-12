@@ -19,8 +19,7 @@ services:
     container_name: promtail
     volumes:
       - ./config/promtail:/etc/promtail
-      - ./logs:/var/log/app
-      - /var/log:/var/log
+      - ./logs:/var/log/app:ro
     command: -config.file=/etc/promtail/promtail-config.yaml
     networks:
       - loki-network
