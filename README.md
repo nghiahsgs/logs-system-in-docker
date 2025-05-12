@@ -63,6 +63,10 @@ docker-compose down
 
 
 
-docker-compose restart promtail
+
+docker restart promtail
 docker exec -it promtail rm /tmp/positions.yaml
 docker restart promtail
+
+docker-compose down -v
+docker compose -f docker-compose.yml up -d
