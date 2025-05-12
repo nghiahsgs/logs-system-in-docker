@@ -11,8 +11,12 @@ messages=(
   "Memory usage: %dMB"
   "CPU usage: %d%%"
   "Failed to connect to service: %s"
-  "API request to /api/%s completed"
+  "API request to /api/users/%d completed"
 )
+
+generate_request_id() {
+  echo "req-$(( RANDOM % 1000 ))"
+}
 
 while true; do
   timestamp=$(date +"%Y-%m-%dT%H:%M:%S")
@@ -22,28 +26,28 @@ while true; do
   
   # Generate random values for placeholders
   user_id=$((RANDOM % 1000))
-  request_id=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 8 | head -n 1)
+  request_id=$(generate_request_id)
   duration=$((RANDOM % 500))
   ratio=$(awk -v min=0.1 -v max=1.0 'BEGIN{srand(); print min+rand()*(max-min)}')
   memory=$((RANDOM % 1024))
   cpu=$((RANDOM % 100))
   service="service-$(( RANDOM % 5 + 1))"
-  api_path="users/$(( RANDOM % 10 + 1))"
+  api_path=$((RANDOM % 10 + 1))
   
   # Format message based on its type to avoid incorrect substitutions
   case $message_index in
     0) formatted_message=$(printf "$message" $user_id) ;;
-    1) formatted_message=$(printf "$message" $request_id $duration) ;;
+    1) formatted_message=$(printf "$message" "$request_id" $duration) ;;
     2) formatted_message=$(printf "$message" $ratio) ;;
     3) formatted_message=$(printf "$message" $duration) ;;
     4) formatted_message=$(printf "$message" $memory) ;;
     5) formatted_message=$(printf "$message" $cpu) ;;
-    6) formatted_message=$(printf "$message" $service) ;;
+    6) formatted_message=$(printf "$message" "$service") ;;
     7) formatted_message=$(printf "$message" $api_path) ;;
     *) formatted_message=$message ;;
   esac
   
-  # Write to log file
+  # Write to log file with a newline
   echo "$timestamp $log_type $formatted_message" >> $LOG_FILE
   
   # Print to console for debugging
