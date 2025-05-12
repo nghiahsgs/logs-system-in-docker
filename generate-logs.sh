@@ -19,7 +19,7 @@ generate_request_id() {
 }
 
 while true; do
-  timestamp=$(date +"%Y-%m-%dT%H:%M:%S")
+  timestamp=$(date +"%Y-%m-%dT%H:%M:%S%z")
   log_type=${log_types[$RANDOM % ${#log_types[@]}]}
   message_index=$((RANDOM % ${#messages[@]}))
   message=${messages[$message_index]}
